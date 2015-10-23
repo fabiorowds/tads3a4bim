@@ -10,7 +10,6 @@ import javax.inject.Named;
 @RequestScoped
 public class ItemProcessor {
 
-	@Inject
 	private ItemDao itemDao;
 
     public void execute() {
@@ -18,6 +17,10 @@ public class ItemProcessor {
         for (Item item : items) {
             System.out.println("Found item " + item);
         }
+    }
+    @Inject
+    public ItemProcessor(@Demo ItemDao itemDao) {
+        this.itemDao = itemDao;
     }
 	
 }
